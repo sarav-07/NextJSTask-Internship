@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useQuery } from "@tanstack/react-query";
 import getContent from "./api/getData";
 import { useEffect, useState } from "react";
@@ -16,7 +15,7 @@ type Todo = {
 export default function Home() {
   const dispatch = useDispatch();
   const tasks = useSelector((state: RootState) => state.tasks.tasks);
-  const { data, isLoading, isError } = useQuery<Todo[], Error>({
+  const { data } = useQuery<Todo[], Error>({
     queryFn: getContent,
     queryKey: ["todos"],
   });
